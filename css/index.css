@@ -9,7 +9,10 @@
     list-style: none;
     text-decoration: none;
 }
-
+body {
+    width: 100%;
+    max-width: 100%;
+}
 h1 {
     color: #222;
     font-size: 50px;
@@ -84,6 +87,7 @@ header {
     background-color: #E3E6F3;
     box-shadow: 0 0 15px rgb(0 0 0 / 0.06);
     z-index: 999;
+    position: relative;
 }
 header nav {
     flex: 1;
@@ -118,6 +122,76 @@ header nav ul li a.active {
 header nav ul li a:hover::after,
 header nav ul li a.active::after {
     width: 50%;
+}
+header .burger-icon {
+    display: none;
+    flex-direction: column;
+    row-gap: 5px;
+    align-items: flex-end;
+    justify-content: center;
+}
+header .burger-icon span {
+    width: 20px;
+    height: 3px;
+    background-color: black;
+    position: relative;
+    transition: 0.3s;
+}
+header .burger-icon span:nth-child(2) {
+    width: 10px;
+    
+}
+header .burger-icon.clicked span:nth-child(2) {
+    width: 20px;
+}
+header .burger-icon span:nth-child(2):before {
+    content: '';
+    position: absolute;
+    width: 0;
+    left: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 5px;
+    border-color: transparent black transparent transparent;
+    border-style: solid;
+}
+
+@media(max-width: 991px) {
+    header .burger-icon {
+        display: flex;
+    }
+    header nav {
+        display: none;
+        position: absolute;
+        bottom: -400px;
+        right: 77px;
+        background-color: #ffffffe6;
+        padding: 0px;
+        width: 300px;
+    }
+    header nav.shown {
+        display: block;
+    }  
+    header nav ul {
+        display: flex;
+        flex-direction: column;
+        
+    }
+    header nav ul li {
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 10px;
+    }
+    header nav ul li:not(:last-child) {
+        border-bottom: 1px solid #465b52;
+        margin-bottom: 10px;
+
+    }
+    
 }
 /* ----------------------------------- */
 .landing {
@@ -162,7 +236,6 @@ header nav ul li a.active::after {
     text-align: center;
 }
 .features .feat-box {
-    width: 180px;
     text-align: center;
     background-color: white;
     padding: 25px 15px;
@@ -308,7 +381,7 @@ header nav ul li a.active::after {
 .sm-banner {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    gap: 40px;
+    gap: 20px;
 }
 .sm-banner .banner-box {
     display: flex;
@@ -321,7 +394,6 @@ header nav ul li a.active::after {
     background-position: center;
     height: 40vh;
     padding: 10px 20px;
-    margin-bottom: 20px;
 }
 .sm-banner .banner-box h4 {
     line-height: 0;
@@ -347,7 +419,6 @@ header nav ul li a.active::after {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
-    width: 100%;
 }
 .banner-3 .banner-box {
     display: flex;
@@ -379,7 +450,7 @@ header nav ul li a.active::after {
 /* -------------------------------- */
 .news-letter {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 40px;
     background-image: url(../imgs/banner/b14.jpg);
     background-position: 20% 30%;
@@ -388,6 +459,14 @@ header nav ul li a.active::after {
 }
 .news-letter .text {
     text-align: center;
+}
+@media(max-width: 767px) {
+    .news-letter .text h4 {
+        font-size: 18px;
+    }
+    .news-letter .text p {
+        font-size: 10px;
+    }
 }
 .news-letter .text h4 {
     color: #fff;
@@ -410,8 +489,8 @@ header nav ul li a.active::after {
 .news-letter form input[type="email"] {
     padding: 0 1.25em;
     height: 3.125rem;
-    width: 70%;
     font-size: 14px;
+    width: 70%;
     border: 1px solid transparent;
     border-radius: 4px;
     outline: none;
@@ -496,4 +575,9 @@ footer .copyright p {
     font-size: 18px;
     font-weight: 700;
     color: white;
+}
+@media (max-width: 991px) {
+    .sm-banner {
+        grid-template-columns: 1fr; 
+    }
 }

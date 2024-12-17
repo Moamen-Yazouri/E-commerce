@@ -12,6 +12,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
     .then(component => {
         document.body.insertAdjacentHTML("afterbegin", component);
+        
+        const burgerIcon = document.querySelector(".burger-icon");
+        const nav = document.querySelector("nav");
+        if(burgerIcon) {
+            burgerIcon.addEventListener("click", () => {
+                nav.classList.toggle("shown");
+                burgerIcon.classList.toggle("clicked");
+            })
+        }
+
     })
 
     .catch(error => console.error(error));
@@ -34,3 +44,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     .catch(error => console.error(error));
 })
+
+
+
+
