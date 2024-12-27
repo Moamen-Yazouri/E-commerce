@@ -578,12 +578,13 @@ footer .copyright p {
     color: white;
 }
 @media (max-width: 991px) {
-    .sm-banner {
+    .sm-banner,
+    .news-letter {
         grid-template-columns: 1fr; 
     }
 }
 /*Shop Page*/
-.shop-landing {
+.page-landing {
     background-image: url(../imgs/banner/b1.jpg);   
     background-size: cover;
     width: 100%;
@@ -593,8 +594,8 @@ footer .copyright p {
     justify-content: center;
     flex-direction: column;
 }
-.shop-landing h2,
-.shop-landing p {
+.page-landing h2,
+.page-landing p {
     color: white;
 }
 .naivgation{
@@ -696,4 +697,83 @@ input::-webkit-outer-spin-button {
     line-height: 1.7;
     color: #777;
     font-size: 15px;
+}
+/* ----- blog page ------- */
+.page-landing.blog {
+    background-image: url(../imgs/banner/b19.jpg);
+}
+.blog-section {
+    padding: 150px 150px 0 150px;
+}
+.blog-section .blog-box {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 90px;
+    position: relative;
+}
+.blog-section .blog-img {
+    width: 50%;
+    position: relative;
+}
+.blog-section .blog-img img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+.blog-section .plog-details {
+    width: 50%;
+}
+.blog-section .plog-details a {
+    text-decoration: none;
+    color: black;
+    position: relative;
+    font-size: 11px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+.blog-section .plog-details a::after {
+    position: absolute;
+    content: '';
+    width: 50px;
+    height: 1px;
+    right: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: black;
+    transition: 0.3s;
+}
+.blog-section .plog-details a:hover {
+    color: var(--main-color);
+}
+.blog-section .plog-details a:hover::after {
+    background-color: var(--main-color);
+}
+.blog-section .blog-box h1 {
+    position: absolute;
+    left: 0;
+    top: -90px;
+    font-size: 70px;
+    font-weight: 700;
+    color: #c9cbce;
+    z-index: -1;
+}
+@media(max-width: 767px) {
+    .blog-section .blog-box {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .blog-section {
+        padding: 100px 20px 0 20px;
+    }
+    .blog-section .blog-img {
+        width: 100%;
+        position: relative;
+    }
+    .blog-section .plog-details {
+        width: 100%;
+        text-align: center;
+    }
 }
